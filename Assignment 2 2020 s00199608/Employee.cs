@@ -11,15 +11,27 @@ namespace Assignment_2_2020_s00199608
         string fName { get; set; }
         string lName { get; set; }
             
-        public abstract double CalculateMonthlyPay(decimal Money); 
+        public abstract decimal CalculateMonthlyPay(); 
     }
     public class FullTime : Employee
     {
-        decimal salary { get; set; }
+        public decimal salary { get; set; }
+
+        override public decimal CalculateMonthlyPay()
+        {
+            decimal monthlyPay;
+            monthlyPay = salary / 12;
+            return monthlyPay;
+        }
     }
     public class PartTime : Employee
     {
         decimal hourlyRate { get; set; }
         double hoursWorked { get; set; }
+
+        override public decimal CalculateMonthlyPay()
+        {
+            return (decimal)((double)hourlyRate * hoursWorked);
+        }
     }
 }
