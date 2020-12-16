@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment_2_2020_s00199608"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <CheckBox x:Name="checkBox" Content="FullTime" HorizontalAlignment="Left" Margin="36,35,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBox1" Content="PartTime" HorizontalAlignment="Left" Margin="202,35,0,0" VerticalAlignment="Top"/>
@@ -14,7 +14,7 @@
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="436,207,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="23" Margin="436,262,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="23" Margin="436,316,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="316" Margin="36,75,0,0" VerticalAlignment="Top" Width="232"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="316" Margin="36,75,0,0" VerticalAlignment="Top" Width="232" SelectionChanged="listBox_SelectionChanged" IsSynchronizedWithCurrentItem="True"/>
         <RadioButton x:Name="radioButton" Content="FT" HorizontalAlignment="Left" Margin="437,176,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="radioButton1" Content="PT" HorizontalAlignment="Left" Margin="512,176,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button" Content="Clear" HorizontalAlignment="Left" Margin="680,77,0,0" VerticalAlignment="Top" Width="75"/>
