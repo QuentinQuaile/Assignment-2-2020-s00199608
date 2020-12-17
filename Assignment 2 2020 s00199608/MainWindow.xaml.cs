@@ -24,7 +24,7 @@ namespace Assignment_2_2020_s00199608
         
         ObservableCollection<Employee> FTemploy = new ObservableCollection<Employee>();
         ObservableCollection<Employee> PTemploy = new ObservableCollection<Employee>();
-        List<Employee> Employees = new List<Employee>();
+        ObservableCollection<Employee> Employees = new ObservableCollection<Employee>();
 
         public MainWindow()
         {
@@ -48,6 +48,22 @@ namespace Assignment_2_2020_s00199608
             PTemploy.Add(employee2);
             PTemploy.Add(employee3);
 
+            if (CheckFT.IsChecked == true && CheckPT.IsChecked == true)
+            {
+                listBox.ItemsSource = Employees;
+            }
+            else if (CheckFT.IsChecked == true)
+            {
+                listBox.ItemsSource = FTemploy;
+            }
+            else if (CheckPT.IsChecked == true)
+            {
+                listBox.ItemsSource = PTemploy;
+            }
+            else
+            {
+                listBox.ItemsSource = null;
+            }
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -63,6 +79,15 @@ namespace Assignment_2_2020_s00199608
                 Salarytxt.Text = selectedEmployee.Salary.ToString();
                 hourlyRatetxt.Text = selectedEmployee.HourlyRate.ToString();
                 hoursWorkedtxt.Text = selectedEmployee.HoursWorked.ToString();
+
+                if (selectedEmployee.Salary > 0)
+                {
+                    FT.IsChecked = true;
+                }
+                else
+                {
+                    PT.IsChecked = true;
+                }
 
                 decimal monthlyPay = selectedEmployee.CalculateMonthlyPay();
                 MonthlyPay.Text = "€" + monthlyPay.ToString();
@@ -107,7 +132,26 @@ namespace Assignment_2_2020_s00199608
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            
+            Employee selectedEmployee = listBox.SelectedItem as Employee;
+            if (selectedEmployee != null)
+            {
+                textBox.Text = null;
+                textBox1.Text = null;
+                Salarytxt.Text = null;
+                hourlyRatetxt.Text = null;
+                hoursWorkedtxt.Text = null;
+
+                if (selectedEmployee.Salary > 0)
+                {
+                    FT.IsChecked = false;
+                }
+                else
+                {
+                    PT.IsChecked = false;
+                }
+
+                MonthlyPay.Text = null;
+            }
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -116,12 +160,12 @@ namespace Assignment_2_2020_s00199608
 
             if (selectedEmployee != null)
             {
-                if (FT.IsChecked == true)
+                if (selectedEmployee.Salary > 0)
                 {
                     FTemploy.Remove(selectedEmployee);
                     Employees.Remove(selectedEmployee);
                 }
-                else if (PT.IsChecked == true)
+                else
                 {
                     PTemploy.Remove(selectedEmployee);
                     Employees.Remove(selectedEmployee);

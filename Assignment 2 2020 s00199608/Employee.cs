@@ -22,7 +22,7 @@ namespace Assignment_2_2020_s00199608
         public Employee(string first, string last)
         {
             fName = first;
-            lName = last;
+            lName = last.ToUpper();
 
         }
 
