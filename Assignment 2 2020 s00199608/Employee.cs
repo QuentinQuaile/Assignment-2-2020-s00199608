@@ -49,7 +49,7 @@ namespace Assignment_2_2020_s00199608
         }
         public override string ToString()
         {
-            return fName + ", " + lName + "- Full Time";
+            return lName + ", " + fName + "- Full Time";
         }
     }
     public class PartTime : Employee

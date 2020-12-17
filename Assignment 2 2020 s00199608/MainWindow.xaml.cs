@@ -237,5 +237,37 @@ namespace Assignment_2_2020_s00199608
                 listBox.ItemsSource = null;
             }
         }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            Employee selectedEmployee = listBox.SelectedItem as Employee;
+
+            if (selectedEmployee != null)
+            {
+                string fName = selectedEmployee.fName, lName = selectedEmployee.lName;
+                decimal Salary = decimal.Parse(Salarytxt.Text);
+                decimal hourlyRate = decimal.Parse(hourlyRatetxt.Text);
+                int hoursWorked = int.Parse(hoursWorkedtxt.Text);
+
+                if(Salarytxt != null && FT.IsChecked == true)
+                {
+                    FullTime employee = new FullTime(fName, lName, Salary);
+
+                    FTemploy.Add(employee);
+                    Employees.Add(employee);
+                    FTemploy.Remove(selectedEmployee);
+                    Employees.Remove(selectedEmployee);
+                }
+                else if(hourlyRatetxt != null && hoursWorkedtxt != null && PT.IsChecked == true)
+                {
+                    PartTime employee = new PartTime(fName, lName, hourlyRate, hoursWorked);
+
+                    PTemploy.Add(employee);
+                    Employees.Add(employee);
+                    PTemploy.Remove(selectedEmployee);
+                    Employees.Remove(selectedEmployee);
+                }
+            }
+        }
     }
 }
