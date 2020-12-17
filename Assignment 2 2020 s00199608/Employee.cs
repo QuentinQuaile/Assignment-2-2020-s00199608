@@ -31,13 +31,6 @@ namespace Assignment_2_2020_s00199608
     }
     public class FullTime : Employee
     {
-        
-
-        public FullTime()
-        {
-
-        }
-
         public FullTime(string first, string last, decimal salary) : base(first,last)
         {
             Salary = salary;
@@ -54,11 +47,6 @@ namespace Assignment_2_2020_s00199608
     }
     public class PartTime : Employee
     {
-        public PartTime()
-        {
-            
-        }
-
         public PartTime(string first, string last, decimal hourlyRate, double hoursWorked): base(first, last)
         {
             HourlyRate = hourlyRate;
