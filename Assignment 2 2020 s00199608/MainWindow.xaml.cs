@@ -21,7 +21,10 @@ namespace Assignment_2_2020_s00199608
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         ObservableCollection<Employee> first = new ObservableCollection<Employee>();
+        ObservableCollection<Employee> filter = new ObservableCollection<Employee>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,7 +44,7 @@ namespace Assignment_2_2020_s00199608
             first.Add(employee2);
             first.Add(employee3);
 
-            listBox.ItemsSource = first;
+            listBox.ItemsSource = filter;
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -93,7 +96,7 @@ namespace Assignment_2_2020_s00199608
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -105,6 +108,38 @@ namespace Assignment_2_2020_s00199608
                 first.Remove(selectedEmployee);
             }
 
+        }
+
+        private void CheckFT_Checked(object sender, RoutedEventArgs e)
+        {
+            foreach (FullTime FT in first)
+            {
+                filter.Add(FT);
+            }
+            if (PT.IsChecked != true)
+            {
+                foreach (PartTime PT in filter)
+                {
+                    filter.Remove(PT);
+                }
+            }
+            
+
+        }
+
+        private void CheckPT_Checked(object sender, RoutedEventArgs e)
+        {
+            foreach (PartTime PT in first)
+            {
+                filter.Add(PT);
+            }
+            if (FT.IsChecked != true)
+            {
+                foreach (PartTime FT in filter)
+                {
+                    filter.Remove(FT);
+                }
+            }
         }
     }
 }
