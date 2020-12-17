@@ -91,6 +91,7 @@ namespace Assignment_2_2020_s00199608
 
                 decimal monthlyPay = selectedEmployee.CalculateMonthlyPay();
                 MonthlyPay.Text = "€" + monthlyPay.ToString();
+                Check();
             }
         }
 
@@ -268,6 +269,37 @@ namespace Assignment_2_2020_s00199608
                     Employees.Remove(selectedEmployee);
                 }
             }
+        }
+        public void Check()
+        {
+            if (FT.IsChecked == true)
+            {
+                Salarytxt.IsEnabled = true;
+                hoursWorkedtxt.IsEnabled = false;
+                hourlyRatetxt.IsEnabled = false;
+            }
+            else if (PT.IsChecked == true)
+            {
+                Salarytxt.IsEnabled = false;
+                hoursWorkedtxt.IsEnabled = true;
+                hourlyRatetxt.IsEnabled = true;
+            }
+            else
+            {
+                Salarytxt.IsEnabled = true;
+                hoursWorkedtxt.IsEnabled = true;
+                hourlyRatetxt.IsEnabled = true;
+            }
+        }
+
+        private void FT_Click(object sender, RoutedEventArgs e)
+        {
+            Check();
+        }
+
+        private void PT_Click(object sender, RoutedEventArgs e)
+        {
+            Check();
         }
     }
 }
