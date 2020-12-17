@@ -22,8 +22,9 @@ namespace Assignment_2_2020_s00199608
     public partial class MainWindow : Window
     {
         
-        ObservableCollection<Employee> first = new ObservableCollection<Employee>();
-        ObservableCollection<Employee> filter = new ObservableCollection<Employee>();
+        ObservableCollection<Employee> FTemploy = new ObservableCollection<Employee>();
+        ObservableCollection<Employee> PTemploy = new ObservableCollection<Employee>();
+        List<Employee> Employees = new List<Employee>();
 
         public MainWindow()
         {
@@ -37,14 +38,16 @@ namespace Assignment_2_2020_s00199608
             FullTime employee1 = new FullTime("Joe", "MURPHY", 300);
             PartTime employee2 = new PartTime("Jane", "JONES", 15, 10);
             PartTime employee3 = new PartTime("John", "SMITH", 20, 7);
+            Employees.Add(employee);
+            Employees.Add(employee1);
+            Employees.Add(employee2);
+            Employees.Add(employee3);
 
+            FTemploy.Add(employee);
+            FTemploy.Add(employee1);
+            PTemploy.Add(employee2);
+            PTemploy.Add(employee3);
 
-            first.Add(employee);
-            first.Add(employee1);
-            first.Add(employee2);
-            first.Add(employee3);
-
-            listBox.ItemsSource = filter;
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -80,7 +83,8 @@ namespace Assignment_2_2020_s00199608
                 hourRate = decimal.Parse(hourlyRate.Text);
                 hourWorked = double.Parse(hoursWorked.Text);
                 PartTime employee = new PartTime(firstName, lastName, hourRate, hourWorked);
-                first.Add(employee);
+                PTemploy.Add(employee);
+                Employees.Add(employee);
             }
             else if (FT.IsChecked == true)
             {
@@ -89,7 +93,8 @@ namespace Assignment_2_2020_s00199608
 
                 FullTime employee = new FullTime(firstName, lastName, salary);
 
-                first.Add(employee);
+                FTemploy.Add(employee);
+                Employees.Add(employee);
             }
 
         }
@@ -105,40 +110,100 @@ namespace Assignment_2_2020_s00199608
 
             if (selectedEmployee != null)
             {
-                first.Remove(selectedEmployee);
+                if (FT.IsChecked == true)
+                {
+                    FTemploy.Remove(selectedEmployee);
+                    Employees.Remove(selectedEmployee);
+                }
+                else if (PT.IsChecked == true)
+                {
+                    PTemploy.Remove(selectedEmployee);
+                    Employees.Remove(selectedEmployee);
+                }
             }
 
         }
 
         private void CheckFT_Checked(object sender, RoutedEventArgs e)
         {
-            foreach (FullTime FT in first)
+            if (CheckFT.IsChecked == true && CheckPT.IsChecked == true)
             {
-                filter.Add(FT);
+                listBox.ItemsSource = Employees;
             }
-            if (PT.IsChecked != true)
+            else if(CheckFT.IsChecked == true)
             {
-                foreach (PartTime PT in filter)
-                {
-                    filter.Remove(PT);
-                }
+                listBox.ItemsSource = FTemploy;
             }
-            
-
+            else if (CheckPT.IsChecked == false && CheckFT.IsChecked == false)
+            {
+                listBox.ItemsSource = null;
+            }
+            //if (PT.IsChecked == null)
+            //{
+            //    foreach (PartTime PT in filter)
+            //    {
+            //        filter.Remove(PT);
+            //    }
+            //}
         }
 
         private void CheckPT_Checked(object sender, RoutedEventArgs e)
         {
-            foreach (PartTime PT in first)
+            if (CheckFT.IsChecked == true && CheckPT.IsChecked == true)
             {
-                filter.Add(PT);
+                listBox.ItemsSource = Employees;
             }
-            if (FT.IsChecked != true)
+            else if (CheckPT.IsChecked == true)
             {
-                foreach (PartTime FT in filter)
-                {
-                    filter.Remove(FT);
-                }
+                listBox.ItemsSource = PTemploy;
+            }
+            else if (CheckPT.IsChecked == false && CheckFT.IsChecked == false)
+            {
+                listBox.ItemsSource = null;
+            }
+
+            //foreach (PartTime PT in first)
+            //{
+            //    filter.Add(PT);
+            //}
+            //if (FT.IsChecked == null)
+            //{
+            //    foreach (PartTime FT in filter)
+            //    {
+            //        filter.Remove(FT);
+            //    }
+            //}
+        }
+
+        private void CheckFT_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (CheckFT.IsChecked == true && CheckPT.IsChecked == true)
+            {
+                listBox.ItemsSource = Employees;
+            }
+            else if (CheckPT.IsChecked == true)
+            {
+                listBox.ItemsSource = PTemploy;
+            }
+            else if (CheckPT.IsChecked == false && CheckFT.IsChecked == false)
+            {
+                listBox.ItemsSource = null;
+            }
+        }
+
+        private void CheckPT_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (CheckFT.IsChecked == true && CheckPT.IsChecked == true)
+            {
+                listBox.ItemsSource = Employees;
+            }
+            else if (CheckFT.IsChecked == true)
+            {
+                listBox.ItemsSource = PTemploy;
+            }
+            else if (CheckPT.IsChecked == false && CheckFT.IsChecked == false)
+            {
+                listBox.ItemsSource = null;
             }
         }
     }
