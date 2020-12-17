@@ -46,6 +46,48 @@ namespace Assignment_2_2020_s00199608
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Employee selectedEmployee = listBox.SelectedItem as Employee;
+
+            //ensure it is not null
+            if (selectedEmployee != null)
+            {
+                //take action - update the display
+                textBox.Text = selectedEmployee.fName;
+                textBox1.Text = selectedEmployee.lName;
+            }
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            //read details from screen
+            string firstName = textBox.Text;
+            string lastName = textBox1.Text;
+            
+
+            if(PT.IsChecked == true)
+            {
+                decimal hourRate;
+                double hourWorked;
+
+                hourRate = decimal.Parse(hourlyRate.Text);
+                hourWorked = double.Parse(hoursWorked.Text);
+                PartTime employee = new PartTime(firstName, lastName, hourRate, hourWorked);
+                first.Add(employee);
+            }
+            else if (FT.IsChecked == true)
+            {
+                decimal salary;
+                salary = decimal.Parse(Salary.Text);
+
+                FullTime employee = new FullTime(firstName, lastName, salary);
+
+                first.Add(employee);
+            }
 
         }
     }

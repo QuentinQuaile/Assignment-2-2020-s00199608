@@ -68,7 +68,7 @@ namespace Assignment_2_2020_s00199608
 
         public override string ToString()
         {
-            return fName + ", " + lName + "- Part Time";
+            return lName + ", " + fName + "- Part Time";
         }
         override public decimal CalculateMonthlyPay()
         {
