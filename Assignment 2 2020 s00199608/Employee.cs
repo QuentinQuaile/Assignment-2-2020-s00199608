@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace Assignment_2_2020_s00199608
 {
+    /*
+ * Student number: s00199608
+ * Description: CA2
+ * Github Link: https://github.com/QuentinQuaile/Assignment-2-2020-s00199608
+ * */
 
     //Creating abstract employee class
     public abstract class Employee

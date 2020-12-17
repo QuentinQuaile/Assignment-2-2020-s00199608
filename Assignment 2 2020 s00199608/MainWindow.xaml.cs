@@ -14,6 +14,12 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 
+/*
+ * Student number: s00199608
+ * Description: CA2
+ * Github Link: https://github.com/QuentinQuaile/Assignment-2-2020-s00199608
+ * */
+
 namespace Assignment_2_2020_s00199608
 {
     /// <summary>
