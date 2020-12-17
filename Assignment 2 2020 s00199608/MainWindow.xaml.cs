@@ -63,6 +63,9 @@ namespace Assignment_2_2020_s00199608
                 Salarytxt.Text = selectedEmployee.Salary.ToString();
                 hourlyRatetxt.Text = selectedEmployee.HourlyRate.ToString();
                 hoursWorkedtxt.Text = selectedEmployee.HoursWorked.ToString();
+
+                decimal monthlyPay = selectedEmployee.CalculateMonthlyPay();
+                MonthlyPay.Text = "€" + monthlyPay.ToString();
             }
         }
 

@@ -27,6 +27,8 @@
         <Label x:Name="label3" Content="Hours Worked" HorizontalAlignment="Left" Margin="304,260,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label4" Content="Hourly Rate" HorizontalAlignment="Left" Margin="304,314,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label5" Content="EMPLOYEES" HorizontalAlignment="Left" Margin="36,50,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label6" Content="Monthly Pay" HorizontalAlignment="Left" Margin="371,373,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="MonthlyPay" HorizontalAlignment="Left" Margin="452,378,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
