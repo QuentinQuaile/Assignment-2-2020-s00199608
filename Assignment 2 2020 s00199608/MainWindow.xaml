@@ -11,9 +11,9 @@
         <CheckBox x:Name="CheckPT" Content="PartTime" HorizontalAlignment="Left" Margin="202,35,0,0" VerticalAlignment="Top" Checked="CheckPT_Checked" Unchecked="CheckPT_Unchecked"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="436,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="436,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Salary" HorizontalAlignment="Left" Height="23" Margin="436,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="hoursWorked" HorizontalAlignment="Left" Height="23" Margin="436,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="hourlyRate" HorizontalAlignment="Left" Height="23" Margin="436,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Salarytxt" HorizontalAlignment="Left" Height="23" Margin="436,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="hoursWorkedtxt" HorizontalAlignment="Left" Height="23" Margin="436,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="hourlyRatetxt" HorizontalAlignment="Left" Height="23" Margin="436,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="316" Margin="36,75,0,0" VerticalAlignment="Top" Width="232" SelectionChanged="listBox_SelectionChanged" IsSynchronizedWithCurrentItem="True"/>
         <RadioButton x:Name="FT" Content="FT" HorizontalAlignment="Left" Margin="437,176,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="PT" Content="PT" HorizontalAlignment="Left" Margin="512,176,0,0" VerticalAlignment="Top"/>

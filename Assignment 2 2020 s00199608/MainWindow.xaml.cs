@@ -60,6 +60,9 @@ namespace Assignment_2_2020_s00199608
                 //take action - update the display
                 textBox.Text = selectedEmployee.fName;
                 textBox1.Text = selectedEmployee.lName;
+                Salarytxt.Text = selectedEmployee.Salary.ToString();
+                hourlyRatetxt.Text = selectedEmployee.HourlyRate.ToString();
+                hoursWorkedtxt.Text = selectedEmployee.HoursWorked.ToString();
             }
         }
 
@@ -80,8 +83,8 @@ namespace Assignment_2_2020_s00199608
                 decimal hourRate;
                 double hourWorked;
 
-                hourRate = decimal.Parse(hourlyRate.Text);
-                hourWorked = double.Parse(hoursWorked.Text);
+                hourRate = decimal.Parse(hourlyRatetxt.Text);
+                hourWorked = double.Parse(hoursWorkedtxt.Text);
                 PartTime employee = new PartTime(firstName, lastName, hourRate, hourWorked);
                 PTemploy.Add(employee);
                 Employees.Add(employee);
@@ -89,7 +92,7 @@ namespace Assignment_2_2020_s00199608
             else if (FT.IsChecked == true)
             {
                 decimal salary;
-                salary = decimal.Parse(Salary.Text);
+                salary = decimal.Parse(Salarytxt.Text);
 
                 FullTime employee = new FullTime(firstName, lastName, salary);
 
@@ -138,13 +141,6 @@ namespace Assignment_2_2020_s00199608
             {
                 listBox.ItemsSource = null;
             }
-            //if (PT.IsChecked == null)
-            //{
-            //    foreach (PartTime PT in filter)
-            //    {
-            //        filter.Remove(PT);
-            //    }
-            //}
         }
 
         private void CheckPT_Checked(object sender, RoutedEventArgs e)
@@ -161,18 +157,6 @@ namespace Assignment_2_2020_s00199608
             {
                 listBox.ItemsSource = null;
             }
-
-            //foreach (PartTime PT in first)
-            //{
-            //    filter.Add(PT);
-            //}
-            //if (FT.IsChecked == null)
-            //{
-            //    foreach (PartTime FT in filter)
-            //    {
-            //        filter.Remove(FT);
-            //    }
-            //}
         }
 
         private void CheckFT_Unchecked(object sender, RoutedEventArgs e)

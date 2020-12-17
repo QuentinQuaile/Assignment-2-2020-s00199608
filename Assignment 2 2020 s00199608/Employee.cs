@@ -10,6 +10,9 @@ namespace Assignment_2_2020_s00199608
     {
         public string fName { get; set; }
         public string lName { get; set; }
+        public decimal Salary { get; set; }
+        public decimal HourlyRate { get; set; }
+        public double HoursWorked { get; set; }
 
         public Employee()
         {
@@ -28,7 +31,7 @@ namespace Assignment_2_2020_s00199608
     }
     public class FullTime : Employee
     {
-        public decimal Salary { get; set; }
+        
 
         public FullTime()
         {
@@ -51,9 +54,6 @@ namespace Assignment_2_2020_s00199608
     }
     public class PartTime : Employee
     {
-        public decimal HourlyRate { get; set; }
-        public double HoursWorked { get; set; }
-
         public PartTime()
         {
             
