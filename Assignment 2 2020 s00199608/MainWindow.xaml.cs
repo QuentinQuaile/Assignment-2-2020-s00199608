@@ -90,5 +90,21 @@ namespace Assignment_2_2020_s00199608
             }
 
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            Employee selectedEmployee = listBox.SelectedItem as Employee;
+
+            if (selectedEmployee != null)
+            {
+                first.Remove(selectedEmployee);
+            }
+
+        }
     }
 }
